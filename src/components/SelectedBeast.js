@@ -9,7 +9,7 @@ class SelectedBeast extends Component {
       favorite: 0,
     };
   }
-  handleShow = (value) => { 
+  handleShow = (value) => {
     console.log(value);
     this.setState({
       setShow: value,

@@ -9,7 +9,7 @@ class Main extends Component {
       descr: '',
     };
   }
-  select=(theName,description)=>{
+  select =(theName, description) => {
     let state = this.state;
     state.theSelected = theName;
     state.descr = description;
@@ -30,7 +30,7 @@ class Main extends Component {
               />
             );
           })
-          :this.props.data.map((beast) => {
+          : this.props.data.map((beast) => {
             return (
               beast.horns === this.props.hornes && (
                 <HornedBeasts
