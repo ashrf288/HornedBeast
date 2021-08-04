@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Modal, Button } from "react-bootstrap";
 
 class SelectedBeast extends Component {
   constructor() {
@@ -10,24 +10,12 @@ class SelectedBeast extends Component {
     };
   }
   handleShow = (value) => {
-    // console.log(data);
-
-    // let theOneTitle = beast[0].title;
-
+    console.log(this.props.data);
     this.setState({
       setShow: value,
     });
-    //     console.log(this.beastN()[0].title);
-    //     // console.log(beast[0].title);
-    //     console.log(this.state.title);
-    //     this.beastN();
-    this.props.bool(!value);
-    //   };
 
-    //   beastN = () => {
-    //     let state = this.state;
-    //     state.title = data.filter((obj) => obj.title === this.props.title);
-    //     this.setState(state);
+    this.props.bool(!value);
   };
   clickHandler = () => {
     this.setState({
@@ -39,7 +27,7 @@ class SelectedBeast extends Component {
     return (
       <>
         <Button
-          variant='primary'
+          variant="primary"
           onClick={() => this.handleShow(this.props.show)}
         >
           Launch static backdrop modal
@@ -48,25 +36,23 @@ class SelectedBeast extends Component {
         <Modal
           show={this.state.setShow === true}
           onHide={this.handleShow}
-          backdrop='static'
+          backdrop="static"
           keyboard={false}
         >
-          <Modal.Header>
-            <Modal.Title>{this.props.title}</Modal.Title>
+          <Modal.Header >
+            <Modal.Title>{this.props.data.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>{this.props.des}</Modal.Body>
+          <Modal.Body style={{textAlign: "center"}}>
+            <img
+              src={this.props.data.image_url}
+              alt={this.props.data.title}
+              style={{ height: "250px", textAlign: "center" }}
+            />
+          </Modal.Body>
           <Modal.Footer>
-            <span> favorite : {this.state.favorite} </span>
-            {''}
-            <span
-              style={{ color: this.state.clicked ? 'CaptionText' : 'blue' }}
-            >
-              &#9825;
-            </span>
-            <Button variant='secondary' onClick={() => this.handleShow(false)}>
+            <Button variant="secondary" onClick={() => this.handleShow(false)}>
               Close
             </Button>
-            <Button variant='primary' onClick={this.clickHandler}> vote</Button>
           </Modal.Footer>
         </Modal>
       </>
