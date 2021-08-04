@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
 class SelectedBeast extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class SelectedBeast extends Component {
     return (
       <>
         <Button
-          variant="primary"
+          variant='primary'
           onClick={() => this.handleShow(this.props.show)}
         >
           Launch static backdrop modal
@@ -36,21 +36,21 @@ class SelectedBeast extends Component {
         <Modal
           show={this.state.setShow === true}
           onHide={this.handleShow}
-          backdrop="static"
+          backdrop='static'
           keyboard={false}
         >
           <Modal.Header >
             <Modal.Title>{this.props.data.title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body style={{textAlign: "center"}}>
+          <Modal.Body style={{textAlign: 'center'}}>
             <img
               src={this.props.data.image_url}
               alt={this.props.data.title}
-              style={{ height: "250px", textAlign: "center" }}
+              style={{ height: '250px', textAlign: 'center' }}
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={() => this.handleShow(false)}>
+            <Button variant='secondary' onClick={() => this.handleShow(false)}>
               Close
             </Button>
           </Modal.Footer>
