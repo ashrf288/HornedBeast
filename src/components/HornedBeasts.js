@@ -11,7 +11,6 @@ class HornedBeasts extends Component {
   }
   clickHandler = () => {
     this.setState({
-      favorite: this.state.favorite + 1,
       clicked: true,
     });
     this.props.selected(this.props.data.title, this.props.data.description);
@@ -19,6 +18,11 @@ class HornedBeasts extends Component {
   setIsShown = (value) => {
     this.setState({
       clicked: value,
+    });
+  };
+  favoriteHandler = () => {
+    this.setState({
+      favorite: this.state.favorite + 1,
     });
   };
   render() {
@@ -35,14 +39,17 @@ class HornedBeasts extends Component {
             className='beastImage'
             onClick={this.clickHandler}
             src={this.props.data.image_url}
+            style={{cursor:'pointer'}}
             thumbnail
           />
         </Col>
         <span> favorite : {this.state.favorite} </span>
-        {''}
-        <span style={{ color: this.state.clicked ? 'CaptionText' : 'blue' }}>
-          &#9825;
-        </span>
+        <i
+          onClick={this.favoriteHandler}
+          className='fa fa-heart'
+          aria-hidden='true'
+          style={{ color: this.state.clicked ? 'red' : 'white' , cursor:'pointer' }}
+        ></i>
         <p>{this.props.data.description}</p>
       </div>
     );

@@ -12,13 +12,18 @@ class App extends Component {
     this.state = {
       selected: '',
       a: false,
-      desc: '',
+      desc:'',
+      beast: {},
     };
   }
   selectedName = (selection, descrip) => {
     let state = this.state;
+    let bests = data.filter((beast) => {
+      return beast.title === selection;
+    });
     state.theSelected = selection;
     state.desc = descrip;
+    state.beast = bests[0];
     this.setState(state);
     this.setState({ a: true });
     console.log(this.state.theSelected);
@@ -34,6 +39,7 @@ class App extends Component {
         <Main data={data} select={this.selectedName} />
         {this.state.a && (
           <SelectedBeast
+            data={this.state.beast}
             title={this.state.theSelected}
             show={this.state.a}
             bool={this.handleA}
